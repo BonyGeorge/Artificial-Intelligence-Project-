@@ -3,24 +3,31 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn import preprocessing
 import pandas as pd
 
-data = pd.read_csv("car.data")
+data = pd.read_csv("corona_latest.csv")
 # print(data.head())
 
 # Give Each label a numeric value so it can be worked as a classifier.
 label = preprocessing.LabelEncoder()
-buying = label.fit_transform(list (data["buying"]))
-maint = label.fit_transform(list (data["maint"]))
-door = label.fit_transform(list (data["door"]))
-persons = label.fit_transform(list (data["persons"]))
-lug_boot = label.fit_transform(list (data["lug_boot"]))
-safety = label.fit_transform(list (data["safety"]))
-cls = label.fit_transform(list (data["class"]))
+
+number = label.fit_transform(list(data["number"]))
+country = label.fit_transform(list(data["Country"]))
+other = label.fit_transform(list(data["Other"]))
+totalC = label.fit_transform(list(data["TotalCases"]))
+newC = label.fit_transform(list(data["NewCases"]))
+totalD = label.fit_transform(list(data["TotalDeaths"]))
+newD = label.fit_transform(list(data["NewDeaths"]))
+totalR = label.fit_transform(list(data["TotalRecovered"]))
+active = label.fit_transform(list(data["ActiveCases"]))
+serious = label.fit_transform(list(data["Serious"]))
+critical = label.fit_transform(list(data["Critical"]))
+totalperM = label.fit_transform(list(data["Tot Cases/1M pop"]))
+deathperM = label.fit_transform(list(data["Deaths/1M pop"]))
 
 predict = "class"
 
 # X for Features & Y for Labels.
-X = list(zip(buying, maint, door, persons, lug_boot, safety))
-Y = list(cls)
+X = list(zip(number, other, totalC, newC, totalD, newD, totalR, active, serious, critical, totalperM, deathperM))
+Y = list(country)
 
 # Training & Testing Values and we used 0.1 to minimize the sacrifice of the data.
 x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, Y, test_size=0.1)
@@ -30,10 +37,9 @@ model = KNeighborsClassifier(n_neighbors=9)
 model.fit(x_train, y_train)
 accuracy = model.score(x_test, y_test)
 predicted = model.predict(x_test)
-names = ["unacc", "acc", "good", "vgood"]
 
 # Get the predictions and the distances between data.
 for x in range(len(predicted)):
-    print("Predicted: ", names[predicted[x]], "Data: ", x_test[x], "Actual: ", names[y_test[x]])
+    print("Predicted: ", predicted[x], "Data: ", x_test[x], "Actual: ", y_test[x])
     distances = model.kneighbors([x_test[x]], 9, True)
     print("Distances: ", distances)
