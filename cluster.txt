@@ -1,0 +1,85 @@
+=== Run information ===
+
+Scheme:       weka.clusterers.SimpleKMeans -init 0 -max-candidates 100 -periodic-pruning 10000 -min-density 2.0 -t1 -1.25 -t2 -1.0 -N 3 -A "weka.core.EuclideanDistance -R first-last" -I 500 -num-slots 1 -S 10
+Relation:     worldometer_data-weka.filters.supervised.attribute.NominalToBinary-weka.filters.supervised.attribute.NominalToBinary-weka.filters.supervised.attribute.NominalToBinary
+Instances:    209
+Attributes:   20
+              Country/Region
+              Continent=North America
+              Continent=South America
+              Continent=Europe
+              Continent=Asia
+              Continent=Africa
+              Continent=Australia/Oceania
+              Population
+              TotalCases
+              NewCases
+              TotalDeaths
+              NewDeaths
+              TotalRecovered
+              NewRecovered
+              ActiveCases
+              Serious,Critical
+              Tot Cases/1M pop
+              Deaths/1M pop
+              TotalTests
+              Tests/1M pop
+Test mode:    evaluate on training data
+
+
+=== Clustering model (full training set) ===
+
+
+kMeans
+======
+
+Number of iterations: 5
+Within cluster sum of squared errors: 307.2199867539197
+
+Initial starting points (random):
+
+Cluster 0: Guinea-Bissau,0,0,0,0,1,0,1963994,1339,675.235294,8,62.5,53,3340.722222,1278,429.307087,682,4,1500,764
+Cluster 1: Namibia,0,0,0,0,1,0,2537081,25,675.235294,2053.532609,62.5,16,3340.722222,9,429.307087,10,64.222747,3970,1565
+Cluster 2: Seychelles,0,0,0,0,1,0,98300,11,675.235294,2053.532609,62.5,11,3340.722222,0,429.307087,112,64.222747,471880.94086,31519.887097
+
+Missing values globally replaced with mean/mode
+
+Final cluster centroids:
+                                                 Cluster#
+Attribute                         Full Data             0             1             2
+                                    (209.0)       (106.0)        (55.0)        (48.0)
+=====================================================================================
+Country/Region                          USA         India           USA        Russia
+Continent=North America              0.1691        0.0032        0.6364             0
+Continent=South America              0.0676        0.0013        0.2545             0
+Continent=Europe                     0.2319        0.0044             0             1
+Continent=Asia                       0.2319        0.4572             0             0
+Continent=Africa                     0.2705        0.5334             0             0
+Continent=Australia/Oceania           0.029        0.0005        0.1091             0
+Population                    30487823.4831 43059586.8487 19273475.6364 15574952.9583
+TotalCases                        30477.134    12043.3396    56035.5636    41899.3958
+NewCases                           675.2353      669.8496       697.492      661.6262
+TotalDeaths                       2053.5326      513.1024     3510.5429      3785.825
+NewDeaths                              62.5       61.9623       64.6364       61.2396
+TotalRecovered                   13644.6863     6959.6669    22750.2545    17973.9739
+NewRecovered                      3340.7222     3169.2662     3774.7727     3222.0046
+ActiveCases                      12853.9171     4912.3962    30185.4727    10532.3681
+Serious,Critical                   429.3071      335.0636      748.9704      271.1473
+Tot Cases/1M pop                  1440.1251      895.2099     1009.9255     3136.4167
+Deaths/1M pop                       64.2227       15.7437       58.2009      178.1806
+TotalTests                      471880.9409   291256.2913   522103.8513   813213.2904
+Tests/1M pop                     31519.8871    20134.8854    22221.3211    67316.3726
+
+
+
+
+Time taken to build model (full training data) : 0.01 seconds
+
+=== Model and evaluation on training set ===
+
+Clustered Instances
+
+0      106 ( 51%)
+1       55 ( 26%)
+2       48 ( 23%)
+
