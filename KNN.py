@@ -3,7 +3,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn import preprocessing
 import pandas as pd
 
-data = pd.read_csv("corona_latest.csv")
+data = pd.read_csv("corona_latest.csv", delimiter=',', names=['number', 'Country', 'Other', 'TotalCases', 'NewCases', 'TotalDeaths', 'NewDeaths', 'TotalRecovered', 'ActiveCases', 'Serious', 'Critical', 'Tot Cases/1M pop', 'Deaths/1M pop'])
 # print(data.head())
 
 # Give Each label a numeric value so it can be worked as a classifier.
@@ -40,6 +40,7 @@ predicted = model.predict(x_test)
 
 # Get the predictions and the distances between data.
 for x in range(len(predicted)):
+    print("Country: ", number[x])
     print("Predicted: ", predicted[x], "Data: ", x_test[x], "Actual: ", y_test[x])
     distances = model.kneighbors([x_test[x]], 9, True)
     print("Distances: ", distances)

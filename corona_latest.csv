@@ -1,4 +1,4 @@
-number,Country               ,Other ,TotalCases,NewCases,TotalDeaths,NewDeaths,TotalRecovered,ActiveCases,Serious,Critical,Tot Cases/1M pop,Deaths/1M pop
+number,Country,Other,TotalCases,NewCases,TotalDeaths,NewDeaths,TotalRecovered,ActiveCases,Serious,Critical,Tot Cases/1M pop,Deaths/1M pop
 0     ,USA                   ,560433,133       ,22115.0 ,10.0       ,32634.0  ,505684        ,11766.0    ,1693.0 ,67.0    ,2833112.0       ,8559.0
 1     ,Spain                 ,166831,0         ,17209.0 ,0.0        ,62391.0  ,87231         ,7371.0     ,3568.0 ,368.0   ,600000.0        ,12833.0
 2     ,Italy                 ,156363,0         ,19899.0 ,0.0        ,34211.0  ,102253        ,3343.0     ,2586.0 ,329.0   ,1010193.0       ,16708.0
