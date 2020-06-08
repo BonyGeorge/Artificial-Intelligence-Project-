@@ -41,6 +41,6 @@ predicted = model.predict(x_test)
 # Get the predictions and the distances between data.
 for x in range(len(predicted)):
     print("Country: ", number[x])
-    print("Predicted: ", predicted[x], "Data: ", x_test[x], "Actual: ", y_test[x])
+    print("Predicted Number: ", predicted[x], "Dataset Number: ", x_test[x], "Actual Number: ", y_test[x])
     distances = model.kneighbors([x_test[x]], 9, True)
-    print("Distances: ", distances)
+    print("Distances between data: ", distances)
